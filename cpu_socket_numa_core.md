@@ -1,9 +1,10 @@
 #### chip
+
 The resources of a processor chip have a hierarchy. 
 The largest unit is a socket. A socket can contain one or more NUMA nodes with its cores and memory. 
 A NUMA node will contain a set of cores and threads and memory which is local to the NUMA node.
 
-#### socket = physical CPU numbers
+#### socket 中文叫物理CPU
 A socket refers to the physical location where a processor package plugs into a motherboard. 
 The processor that plugs into the motherboard is also known as a socket. The socket can contain one or more NUMA nodes.
 so, a socket equals a processor in most cases.
@@ -12,9 +13,10 @@ cat /proc/cpuinfo | grep "physical id" | sort | uniq
 ```
 the physical id of the cpu package. in Xeon 6330 it is 2.
 
-#### NUMA node
+#### NUMA node 一个物理核中的不同节点
+一个NUMA节点包含多个core和一块Memory。
 
-#### core
+#### core 中文叫物理核
 A core is an individual execution unit within a processor that can independently execute a software execution thread
 and maintains its execution state separate from the execution state of any other cores within a processor.
 ```
@@ -35,8 +37,6 @@ the vps in linode, cpu cores is 1 and in Xeon 6330, the cpu cores if 56.
 ```
 cat /proc/cpuinfo | grep processor | wc -l
 ```
-
-
 #### commands
 ```
 numactl --hardware
